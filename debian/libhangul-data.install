@@ -1,0 +1,3 @@
+usr/share/libhangul
+usr/share/locale/*
+debian/apparmor.d/* etc/apparmor.d/

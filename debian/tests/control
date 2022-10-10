@@ -1,0 +1,3 @@
+# Run tests
+Tests: run-test
+Depends: build-essential, libhangul-dev, check (>= 0.9.8), pkg-config

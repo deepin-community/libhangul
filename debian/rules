@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --with autoreconf
+
+.PHONY: override_dh_autoreconf
+override_dh_autoreconf:
+	test -f ChangeLog || touch ChangeLog
+	test -f config.rpath || touch config.rpath
+	intltoolize --copy --force
+	dh_autoreconf
+
+# The upstream distributes the git-based changelog, so we can't get that
+# changelog when we directly use the upstream git..
+.PHONY: override_dh_installchangelogs
+override_dh_installchangelogs:
+	dh_installchangelogs debian/changelog.upstream

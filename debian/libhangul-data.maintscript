@@ -1,0 +1,2 @@
+# Fix incorrect apparmor path
+mv_conffile /etc/apparmor.d/abstractions/libhangul/libhangul.apparmor /etc/apparmor.d/abstractions/libhangul1 0.1.0+git20191003-1

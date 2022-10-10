@@ -1,0 +1,234 @@
+libhangul (0.1.0+git20191003-2+u001) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian Korean L10N <debian-l10n-korean@lists.debian.org>  Sun, 24 Apr 2022 11:32:08 +0800
+
+libhangul (0.1.0+git20191003-2) unstable; urgency=medium
+
+  * debian/apparmor/abstraction/libhangul:
+    - Move from debian/libhangul.apparmor
+    - Fix path
+    - Add user-defined keyboards loading to the apparmor abstraction
+  * debian/tests/run-test: Use mktemp for executable path
+  * debian/patches/path-max.patch: Dropped. The upstream doesn't use
+    PATH_MAX anymore
+
+ -- Changwoo Ryu <cwryu@debian.org>  Thu, 05 Dec 2019 14:19:42 +0900
+
+libhangul (0.1.0+git20191003-1) unstable; urgency=medium
+
+  * New upstream version from git
+  * debian/libhangul1.symbols: Updated for 0.1.0+git20191003
+  * debian/changelog: Remove trailing newline
+  * debian/control: Build-Depends on debhelper-compat (= 12) instead of
+    debhelper
+  * debian/compat: Dropped
+  * debian/control: Add "Rules-Requires-Root: no"
+  * debian/copyright: Use https for the copyright format URL
+  * debian/control: Bump Standards-Version to 4.4.1
+  * debian/libhangul1.symbols: Add "Build-Depends-Package: libhangul-dev"
+  * debian/control: Drop useless Build-Depends on autotools-dev, dh-autoreconf
+  * debian/tests/{control,run-test}: Add autopkgtest
+  * debian/salsa-ci.yml: Add Salsa CI config
+  * debian/{libhangul.apparmor,libhangul-data.install}: Add apparmor
+    abstraction for libhangul
+
+ -- Changwoo Ryu <cwryu@debian.org>  Wed, 13 Nov 2019 13:47:39 +0900
+
+libhangul (0.1.0+git20170815-2) unstable; urgency=medium
+
+  * debian/copyright: Update the copyright info
+  * patch: Define PATH_MAX if it is undefined
+  * debian/control:
+    - Update Vcs-* to the new salsa.d.o repository
+    - Standards-Version: 4.1.2
+
+ -- Changwoo Ryu <cwryu@debian.org>  Mon, 25 Dec 2017 22:20:27 +0900
+
+libhangul (0.1.0+git20170815-1) unstable; urgency=medium
+
+  [ Changwoo Ryu ]
+  * New upstream version from git
+  * debian/control:
+    - Standards-Version: 4.1.1
+  * Automatic debug package
+    - Remove -dbg package from debian/control
+    - Remove dh_strip override from debian/rules
+    - Use debhelper (>= 9.20160114)
+  * Remove lintian-overrides file; no more false-positive
+
+ -- Changwoo Ryu <cwryu@debian.org>  Tue, 28 Nov 2017 03:20:32 +0900
+
+libhangul (0.1.0-4) unstable; urgency=low
+
+  [ Changwoo Ryu ]
+  * debian/control:
+    - Correct Vcs-* fields
+    - Standards-Version: 3.9.8
+    - Remove explicit multiarch-support from Pre-Depends
+  * debian/rules: Use hardening=+all build flag
+  * debian/{control,copyright,watch}: Update the upstream URL
+
+ -- Changwoo Ryu <cwryu@debian.org>  Mon, 20 Feb 2017 23:48:36 +0900
+
+libhangul (0.1.0-3) unstable; urgency=low
+
+  [ Changwoo Ryu ]
+  * Multi-Arch: same on the -dev package
+  * debian/copyright: Fix a typo
+  * Add libhangul1.symbols for dpkg-gensymbols
+  * Add Pre-Depends on multiarch-support
+  * Add git-buildpackage config
+  * Remove unneeded build dependency on quilt
+  * Fix lintian warnings
+  * Add lintian overrides for hardening-no-fortify-functions false-positive
+  * Standards-Version: 3.9.4
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sat, 02 Feb 2013 22:58:35 +0900
+
+libhangul (0.1.0-2) unstable; urgency=low
+
+  [ Changwoo Ryu ]
+  * Correct debian/watch. The upstream moved to Google Code.
+  * debian/copyright:
+    - Use the copyright format 1.0
+  * Use debhelper 9
+  * Specify dh_makeshlibs --version-info version
+  * Multiarch transition
+  * Standard-Version: 3.9.3
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sun, 20 May 2012 02:33:36 +0900
+
+libhangul (0.1.0-1) unstable; urgency=low
+
+  [ Changwoo Ryu ]
+  * New upstream version
+  * Renamed packages as libhangul1*
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sat, 22 Oct 2011 16:15:06 +0900
+
+libhangul (0.0.12-4) unstable; urgency=low
+
+  [ Changwoo Ryu ]
+  * Rename libhangul0-data as libhangul-data, for easy transition to
+    libhangul 0.1.x.
+  * Exclude /usr/bin/hangul from generating debugging symbols
+
+ -- Changwoo Ryu <cwryu@debian.org>  Fri, 21 Oct 2011 23:48:43 +0900
+
+libhangul (0.0.12-3) unstable; urgency=low
+
+  * Move the translation to libhangul0-data
+  * Team maintained by Debian Korean L10N
+  * Don't install the *.la file anymore (closes: #621617)
+  * Standard-Version: 3.9.2
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sat, 13 Aug 2011 02:27:34 +0900
+
+libhangul (0.0.12-2) unstable; urgency=low
+
+  * Rewrite debian/copyright as the DEP-5 format
+  * Install Korean translation and /usr/bin/hangul
+
+ -- Changwoo Ryu <cwryu@debian.org>  Thu, 27 Jan 2011 12:24:43 +0900
+
+libhangul (0.0.12-1) unstable; urgency=low
+
+  * New upstream release
+  * Standard-Version: 3.9.1
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sat, 08 Jan 2011 21:30:12 +0900
+
+libhangul (0.0.11-2) unstable; urgency=low
+
+  * Build-Depends on pkg-config and check (Closes: #589440)
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sun, 18 Jul 2010 08:30:37 +0900
+
+libhangul (0.0.11-1) unstable; urgency=low
+
+  * New upstream release
+  * Fix debian/watch for the new KLDP.net site
+  * Use source format 3.0 (quilt)
+  * Standards-Version: 3.9.0
+  * Use debhelper7 and drop CDBS.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sun, 18 Jul 2010 03:34:59 +0900
+
+libhangul (0.0.10-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards-Version: 3.8.3
+  * Change the Section of the -dbg package to debug
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sun, 01 Nov 2009 00:05:43 +0900
+
+libhangul (0.0.9-1) unstable; urgency=low
+
+  * New upstream release
+  * Standard-Version: 3.8.0.
+  * Remove obsolete /usr/bin/hanjac installation.
+  * Add ${misc:Depends} on Depends for debhelper.
+  * New binary package libhangul0-data, for arch independent data.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Mon, 22 Dec 2008 12:53:47 +0900
+
+libhangul (0.0.8-3) unstable; urgency=low
+
+  * Install the new binary Hanja dictionary (hanja.bin) instead of the
+    source hanja.txt.
+  * Install the Hanja dictionary converter (hanjac) to the dev package.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Wed, 23 Apr 2008 02:02:35 +0900
+
+libhangul (0.0.8-2) unstable; urgency=low
+
+  * Inserted a missing function declaration (Closes: #477183)
+
+ -- Changwoo Ryu <cwryu@debian.org>  Tue, 22 Apr 2008 03:34:25 +0900
+
+libhangul (0.0.8-1) unstable; urgency=low
+
+  * New upstream release
+  * Corrected libhangul0-dbg Depends.
+  * Removed python-hangul, which was abandoned by the upstream.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Mon, 21 Apr 2008 15:32:45 +0900
+
+libhangul (0.0.7-1) unstable; urgency=low
+
+  * New upstream release (Closes: #440293)
+  * New -dbg debugging symbols package.
+  * New python-hangul python interface package.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Tue, 29 Jan 2008 19:05:53 +0900
+
+libhangul (0.0.6-2) unstable; urgency=low
+
+  * Standard-Version: 3.7.3.
+  * Added Homepage: field and removed homepage URLs from the descriptions.
+  * Added Vcs-Browser and Vcs-Git fields.
+  * Removed examples from -dev. These "examples" are designed as test
+    programs, not good as examples.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Tue, 29 Jan 2008 17:28:42 +0900
+
+libhangul (0.0.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Changwoo Ryu <cwryu@debian.org>  Thu, 12 Jul 2007 16:02:51 +0900
+
+libhangul (0.0.4-2) unstable; urgency=low
+
+  * Initial release revised (Closes: #406703)
+  * Put additional license info in debian/copyright.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sun, 11 Feb 2007 14:42:43 +0900
+
+libhangul (0.0.4-1) unstable; urgency=low
+
+  * Initial release (Closes: #406703)
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sat,  6 Jan 2007 17:54:23 +0900
