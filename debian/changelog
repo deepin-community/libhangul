@@ -1,8 +1,12 @@
-libhangul (0.1.0+git20191003-2+u001) UNRELEASED; urgency=medium
+libhangul (0.1.0+git20191003-2deepin) unstable; urgency=medium
 
+  [ Debian Korean L10N ]
   * update
 
- -- Debian Korean L10N <debian-l10n-korean@lists.debian.org>  Sun, 24 Apr 2022 11:32:08 +0800
+  [ Yutao Meng ]
+  * Regulate version name
+
+ -- Yutao Meng <mengyutao@uniontech.com>  Tue, 21 Mar 2023 11:17:03 +0800
 
 libhangul (0.1.0+git20191003-2) unstable; urgency=medium
 
