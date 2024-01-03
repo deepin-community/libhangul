@@ -1,0 +1,3 @@
+# Not docs
+libhangul-data: package-contains-documentation-outside-usr-share-doc [usr/share/libhangul/hanja/hanja.txt]
+libhangul-data: package-contains-documentation-outside-usr-share-doc [usr/share/libhangul/hanja/mssymbol.txt]

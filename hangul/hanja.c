@@ -22,7 +22,12 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#ifndef _WIN32
 #include <unistd.h>
+#else
+#include <io.h>
+#define strtok_r strtok_s
+#endif
 
 #ifdef HAVE_MMAP
 #include <sys/mman.h>
@@ -436,14 +441,18 @@ hanja_table_match(const HanjaTable* table,
 	    char* p = strtok_r(buf, ":", &save);
 	    res = strcmp(p, key);
 	    if (res == 0) {
+                if (*list == NULL) {
+                    *list = hanja_list_new(key);
+                }
+
+                if (*list == NULL) {
+                    break;
+                }
+
 		char* value   = strtok_r(NULL, ":", &save);
 		char* comment = strtok_r(NULL, "\r\n", &save);
 
 		Hanja* hanja = hanja_new(p, value, comment);
-
-		if (*list == NULL) {
-		    *list = hanja_list_new(key);
-		}
 
 		hanja_list_append_n(*list, hanja, 1);
 	    } else if (res > 0) {
@@ -486,7 +495,11 @@ hanja_table_load(const char* filename)
     HanjaTable* table;
 
     if (filename == NULL)
+#ifdef LIBHANGUL_DEFAULT_HANJA_DIC
 	filename = LIBHANGUL_DEFAULT_HANJA_DIC;
+#else
+	return NULL;
+#endif /* LIBHANGUL_DEFAULT_HANJA_DIC */
 
     file = fopen(filename, "r");
     if (file == NULL) {

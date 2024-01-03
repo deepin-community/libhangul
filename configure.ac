@@ -24,7 +24,10 @@ AC_SUBST(LIBHANGUL_CURRENT)
 AC_SUBST(LIBHANGUL_REVISION)
 AC_SUBST(LIBHANGUL_AGE)
 
-IT_PROG_INTLTOOL
+AM_MAINTAINER_MODE
+
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT([external])
 
 # Checks for programs.
 AC_PROG_CC
@@ -38,6 +41,7 @@ AC_PROG_INSTALL
 AC_HEADER_STDC
 AC_CHECK_HEADERS([stdlib.h string.h limits.h])
 AC_CHECK_HEADERS([langinfo.h])
+AC_CHECK_HEADERS([glob.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
@@ -89,6 +93,11 @@ libhangul.pc
 po/Makefile.in
 test/Makefile
 tools/Makefile
+])
+
+AC_CONFIG_LINKS([
+data/keyboards/hangul-combination-default.xml:data/keyboards/hangul-combination-default.xml
+data/keyboards/hangul-combination-full.xml:data/keyboards/hangul-combination-full.xml
 ])
 
 AC_OUTPUT

@@ -46,6 +46,7 @@ void ucs4_to_utf8(char *buf, const ucschar *ucs4, size_t bufsize)
     outbuf = buf;
     outbytesleft = bufsize;
     ret = iconv(cd, &inbuf, &inbytesleft, &outbuf, &outbytesleft);
+    (void)ret;
 
     iconv_close(cd);
 
@@ -66,6 +67,10 @@ main(int argc, char *argv[])
     if (argc > 1) {
 	keyboard = argv[1];
     }
+
+    char* keyboard_path = getenv("LIBHANGUL_KEYBOARD_PATH");
+    if (keyboard_path == NULL)
+        putenv("LIBHANGUL_KEYBOARD_PATH=" TEST_LIBHANGUL_KEYBOARD_PATH);
 
     hangul_init();
 

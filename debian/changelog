@@ -1,16 +1,30 @@
-libhangul (0.1.0+git20191003-2deepin) unstable; urgency=medium
+libhangul (0.1.0+git20230314-2) unstable; urgency=medium
 
-  [ Debian Korean L10N ]
-  * update
+  [ Changwoo Ryu ]
+  * Fix FTBFS on double build (Closes: #1046186)
 
-  [ Yutao Meng ]
-  * Regulate version name
+ -- Changwoo Ryu <cwryu@debian.org>  Thu, 14 Sep 2023 16:48:36 +0530
 
- -- Yutao Meng <mengyutao@uniontech.com>  Tue, 21 Mar 2023 11:17:03 +0800
+libhangul (0.1.0+git20230314-1) unstable; urgency=medium
+
+  [ Changwoo Ryu ]
+  * New upstream version from git
+    - debian/control: Remove intltool Build-Depends.
+  * debian/{control,copyright,watch}: Update the upstream URI
+  * debian/control: Bump debhelper-compat to 13
+  * debian/not-installed: New file to fix dh_missing failure
+  * debian/libhangul-data.lintian-overrides: Added to avoid false negative
+    lintian notices.
+  * Update Standards-Version to 4.5.1, no changes needed.
+  * Drop unnessary dependency on dh-autoreconf.
+  * Remove constraints unnecessary since buster (oldstable):
+    - Build-Depends: Drop versioned constraint on check (>= 0.9.8).
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sat, 03 Jun 2023 22:27:50 +0900
 
 libhangul (0.1.0+git20191003-2) unstable; urgency=medium
 
-  * debian/apparmor/abstraction/libhangul:
+  * debian/apparmor.d/abstraction/libhangul1:
     - Move from debian/libhangul.apparmor
     - Fix path
     - Add user-defined keyboards loading to the apparmor abstraction

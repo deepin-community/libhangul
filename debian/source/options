@@ -1,0 +1,2 @@
+# Ignore po updates
+extend-diff-ignore = "/(.*\.po|.*\.pot|.*\.gmo)$"

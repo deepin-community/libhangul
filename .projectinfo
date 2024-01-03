@@ -1,1 +1,0 @@
-{"project":"libhangul","type":"","version":"0.1.0.19.10.03","hierarchy":"base","priority":"","maintainer":"","packager":"","builddeps":" autopoint, check (\u003e= 0.9.8), debhelper-compat (= 12), intltool, pkg-config, libexpat1-dev, ","homepage":" https://github.com/choehwanjin/libhangul","git":"https://salsa.debian.org/l10n-korean-team/libhangul.git"}

@@ -1,3 +1,559 @@
+commit 154a5e0f13aebc80a465336642a406d6ddfc06cf
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-03-14 02:52:54 +0900
+
+    bindings: update ruby binding
+
+M	bindings/ruby/extconf.rb
+M	bindings/ruby/hangul.c
+M	bindings/ruby/test-hangul.rb
+
+commit ad760a7d3b16384031f60aa5a31e8e153b2273e3
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-03-04 00:39:55 +0900
+
+    support python3 binding
+
+M	bindings/python/pyhangul.c
+M	bindings/python/setup.py
+M	bindings/python/test_pyhangul.py
+
+commit eb2189dada182848d05466abbae885c3bd4fdba0
+Merge: 3db276b 011d988
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2023-03-12 11:05:23 +0900
+
+    Merge branch 'win32-glob' of https://github.com/wkpark/libhangul
+    
+    win32: ENABLE_EXTERNAL_KEYBOARDS 지원 #73
+    
+    https://github.com/libhangul/libhangul/pull/73
+    
+    * 'win32-glob' of https://github.com/wkpark/libhangul:
+      win32: add the -p:ExternalKeyboard property option.
+      win32: fix for win32.
+      win32: fix hangul_keyboard_get_default_keyboard_path()
+      win32: use Find*File() for win32
+      cmake: check glob.h and add config.h.cmake.in
+
+commit 011d98801d705347446f49ba8acad512ea705061
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-27 14:12:53 +0900
+
+    win32: add the -p:ExternalKeyboard property option.
+
+M	libhangul.vcxproj
+
+commit 30c0382d2067c3bfb1895ed0d8f52859d5df62cb
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-27 02:39:18 +0900
+
+    win32: fix for win32.
+
+M	hangul/hangulkeyboard.c
+
+commit 796cf6a7b4d2b9fc465ddabc50b75b9abe526415
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-27 00:41:42 +0900
+
+    win32: fix hangul_keyboard_get_default_keyboard_path()
+
+M	hangul/hangulkeyboard.c
+
+commit bad12bde8ac496a6736f611ae03c50839b253003
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-27 00:39:32 +0900
+
+    win32: use Find*File() for win32
+
+M	hangul/hangulkeyboard.c
+
+commit 7c2fb9216e72302134115c1483d4c3d2b1edd3a1
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-27 00:30:55 +0900
+
+    cmake: check glob.h and add config.h.cmake.in
+
+M	CMakeLists.txt
+A	config.h.cmake.in
+M	configure.ac
+M	hangul/CMakeLists.txt
+
+commit 3db276b40c0b82f26d4d013d70d380d8baf173e0
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2023-02-26 21:58:07 +0900
+
+    hanja: 견출지:見出紙 추가
+
+M	data/hanja/hanja.txt
+
+commit e4a8d910a3133f653f326990925a0ba9155214f5
+Merge: a3d8eb6 c33ba4c
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2023-02-26 22:05:19 +0900
+
+    Merge branch 'win32' of https://github.com/wkpark/libhangul into win32
+    
+    Win32 환경 지원
+    
+    https://github.com/libhangul/libhangul/pull/72
+    
+    * 'win32' of https://github.com/wkpark/libhangul:
+      do not define the default hanja dictionary for win32 case.
+      win32: support DynamicLibrary
+      add win32 vcxproj file
+      WIN32 build fixes
+
+commit c33ba4ca3de49f636a173f2f73f33633a26b4ce6
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-12 00:57:45 +0900
+
+    do not define the default hanja dictionary for win32 case.
+
+M	hangul/hanja.c
+
+commit 3cc5d20e4907de66cc38d368da5c91ba7c77329b
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-11 14:36:06 +0900
+
+    win32: support DynamicLibrary
+
+M	libhangul.vcxproj
+A	win32/libhangul.rc
+
+commit bc10ca455bce26fda3e8b6200e5d98d5f28eef3f
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-11 13:40:04 +0900
+
+    add win32 vcxproj file
+
+A	libhangul.vcxproj
+
+commit 2eee4916eede1eff6fbe6bf33d150c0e28551593
+Author: Won-Kyu Park <wkpark@gmail.com>
+Date:   2023-02-11 13:23:51 +0900
+
+    WIN32 build fixes
+
+M	hangul/hangulinputcontext.c
+M	hangul/hangulkeyboard.c
+M	hangul/hanja.c
+M	test/hangul.c
+M	test/test.c
+
+commit a3d8eb6167cb92fe9d192402bb9b8dbe20ff7e26
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-12 12:30:47 +0900
+
+    hanja: 용화(宂話) 변경, 치매(癡呆) 추가
+    
+    �수정과정에서 발견한 부분을 추가 수정한다.
+    
+    용화   표준국어대사전에서는 용화를 冗話가 아닌 宂話로 쓰고 있다.
+    치매   목록에 없어 癡呆로 추가한다.
+
+M	data/hanja/hanja.txt
+
+commit f65527d0b80b37f25ed96d86292bb25979c2921e
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-12 11:36:35 +0900
+
+    hanja: �로 되어 있는 단어를 한자로 찾아 바꾼다
+    
+    표준국어대사전을 참조하여 �로 되어 있는 부분의 원래 글자를 찾아
+    바꾼다. 이 글자들은 원본 데이터인 '6개사전표제어목록'에서 부터
+    �으로 되어 있는 것 같다(아니면 mdb 파일을 변환하는 과정에서
+    코드 변환에 실패했을 가능성도 있다). 표준국어대사전에서 확인할
+    수 없는 단어들은 인터넷을 검색해서 나오는 단어를 사용했다.
+    
+    또 6개사전표제어목록에서 --하다의 어근 형태로 작성된 부분들이
+    반복되어 추가된 경우가 있어 이런 경우에는 제거한다.
+    
+    벽온단   �瘟丹이 표준국어대사전에서는 辟瘟團으로 되어있으나
+             한의학관련 문서들은 丹을 사용하고 있으므로 일단 辟자만
+             변경한다. 추후 확인과정을 거쳐 수정할 필요가 있다.
+    연희     �喜는 표준국어대사전에서는 찾을 수 없으나
+             일본 연호인 것 같아 延喜로 추가한다.
+    사벽     邪壁은 표준국어대사전에서는 邪辟으로 되어 있다.
+    음량     陰�에 맞는 다른 단어는 찾을 수 있는 것이 없어 제거한다.
+    처량     凄�에 맞는 다른 단어는 찾을 수 있는 것이 없어 제거한다.
+    초통     �筒으로 찾을 수 있는 단어가 없어 제거한다.
+             아마 총통銃筒의 잘못이 아닐까 싶다.
+    초피     표준국어대사전에서는 한자가 아닌 것으로 되어 있으나
+             椒皮로 표기하는 경우가 확인되어 수록한다.
+             한편 표준국어대사전에서도 왕초피나무는 王椒皮나무로 적고 있다.
+    충담     �澹은 沖澹의 중복인 것 같아 제거한다.
+    충벽     ��은 한국학중앙연구회 옛 편지 낱말사전에서 沖辟이 확인되어
+             입력 편리성을 고려해 일단은 추가해 놓는다.
+             http://waks.aks.ac.kr/rsh/dir/rview.aspx?rshID=AKS-2007-HZ-2001&callType=dir&dirRsh=&dataID=AKS-2007-HZ-2001_DIC@FND_DIC_YPJ_PNMS_6413
+    충충     沖�은 沖沖으로 이미 있고 표준국어대사전에서는 忡忡이 확인되어
+             이를 추가한다.
+    충파     �破는 沖破의 중복인 것 같아 제거한다.
+    태재급급 殆哉岌岌으로 확인되어 胎를 殆로 바꾼다.
+    포세     �稅는 逋稅의 중복인 것 같아 제거한다.
+    해초목   海鞘目으로 한다. 표준국어대사전에서는 확인되지 않으나
+             고려대한국어대사전(다음 사전 서비스 참고)에서 확인된다.
+
+M	data/hanja/hanja.txt
+
+commit 75dfb8e3a1535ac54a6c8a8068eac5d403416501
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-10 22:35:34 +0900
+
+    hanja: 일본 지명을 한자로 바꿈
+    
+    일본 지명이 한자로 되어 있지 않아 사용이 불편하다.
+    일본 발음으로 한자로 입력가능하게 하면 일본 지명의 한자음을
+    몰라도 변환이 가능해지므로 편리하다.
+    
+    한자는 일본과 통용되게 하기 위해서 일본식 한자를 사용한다.
+    그러나 縣의 경우 県을 사용하는 것이 좋을지 확신이 없어
+    縣을 그대로 붙여 둔다. 県이 활용도가 높다면 바꾸는 것을
+    고려해도 좋을 것이다.
+
+M	data/hanja/hanja.txt
+
+commit d2c3f7cf70cd69a214f48318f540e7f5744a5725
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-10 15:10:04 +0900
+
+    hanja: 관능, 금종, 금주, 금지 한자로 작성
+    
+    한자어 단어중 한자로 작성이 덜되어 있는 단어들을 한자로
+    바꿔 준다.
+
+M	data/hanja/hanja.txt
+
+commit 74f3cd0c6885f8cf31b8f9723d5a3899f2cd71b8
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-10 14:31:35 +0900
+
+    hanja: 碍 -> 礙
+    
+    국립국어원 표준국어대사전에서는 장애를 障礙로 표기하고 있다.
+    이에 맞게 속자인 碍보다 礙를 우선하기로 한다.
+    따라서 개별 글자 입력에서도 碍와 礙의 순서를 바꾸어
+    礙가 먼저 나오도록 변경한다.
+    
+    * 無碍智 경우는 고유명사이고 표준국어대사전에서도 碍를 사용하고 있으므로
+    그대로 유지한다.
+    * '무애'의 경우 無礙, 無㝵 표기가 가능하므로 2개다 추가한다.
+    * '무광애', '무광애불'은 표준국어대사전에 따라 㝵를 사용한다.
+
+M	data/hanja/hanja.txt
+
+commit 5cd5d7c06d13ec71a405107063c702f1beabf8d1
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-10 13:50:57 +0900
+
+    hanja: 隣보다 鄰을 우선
+    
+    국립국어원 표준국어대사전에서는 鄰을 사용하고 있다.
+    이에 맞추어 隣대신 鄰을 우선 사용하도록 순서를 조정한다.
+    
+    그리고 隣을 사용한 곳을 鄰으로 바꾼다.
+    결린(절린)은 한자어로 보지 않는 것 같아서 삭제한다.
+    
+    지명인 선린동, 인제동은 일종의 고유명사임을 고려하여 隣을 사용하려
+    했으나 규칙의 단순성을 위해서 鄰으로 통일한다.
+
+M	data/hanja/hanja.txt
+
+commit d5cadaaf33ea99188f795620b3205b75e2fc11b6
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-09-09 13:06:55 +0900
+
+    hanja: 주자가례: 走子珂禮 -> 朱子家禮
+    
+    주자가례에 走子珂禮라는 한자어는 확인되는 곳이 없다.
+    아마 朱子家禮를 잘못 입력한 듯 하다.
+    
+    원본 데이터인 "6개사전표제어목록.zip" 파일을 확인해보면
+    거기에 이미 走子珂禮으로 되어 있는 것으로 보아 처음부터
+    잘못된 데이터가 들어간 것 같다.
+
+M	data/hanja/hanja.txt
+
+commit 576469d6ce1363032af80f25375d8bac7f0abc04
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2022-08-20 14:32:22 +0900
+
+    keyboard: Always specify SUFFIX on sed -i option
+    
+    On macOS, `sed -i` without SUFFIX option reports an error:
+    ```
+    sed: -e: No such file or directory
+    ```
+    
+    hangul-keyboard-*.name.xml.tmp are intermediate files.
+    They should be cleaned.
+    
+    BYPRODUCTS option is simpler to use than ADDITIONAL_MAKE_CLEAN_FILES.
+    It is available from 3.2.
+    
+    https://github.com/libhangul/libhangul/issues/63
+
+M	data/keyboards/CMakeLists.txt
+M	data/keyboards/Makefile.am
+
+commit 313b888f1df00f8e476c3ba25a8ce619baaefc91
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-12-19 16:03:42 +0900
+
+    hanja: Fix dereference of NULL
+    
+    Static Analysis에서 발견된 "dereference of NULL" 문제를 수정한다.
+    HanjaList 메모리 할당에 실패한 경우에 대한 처리가 되지 않고 있었다.
+    list 할당에 실패한 경우 Hanja 아이템을 추가하지 않게 한다.
+    
+    https://github.com/libhangul/libhangul/issues/53
+
+M	hangul/hanja.c
+
+commit 4f55605d415bef9d35c105aa6b58b10b4bccffd4
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-12-20 09:31:45 +0900
+
+    test: fail_unless -> ck_assert
+    
+    fail_unless macro from libcheck is deprecated.
+    Use new ck_assert macro.
+    
+    The following warnings are reported with libcheck-0.15.2:
+    ```
+    libhangul/test/test.c:450:17: warning: too many arguments for format [-Wformat-extra-args]
+      450 |                 "error: next syllable: L L V V T T");
+          |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ...
+    ```
+    
+    Maybe, the commit below causes the warning:
+    https://github.com/libcheck/check/commit/82540c5428d3818b64d6a8aefb601e722520651f
+
+M	test/test.c
+
+commit 6f06c7652d11cac4340360484e82174f7ce36cb5
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-12-23 09:29:29 +0900
+
+    hanja: 유탄발사기 추가, 유탁제 업데이트
+    
+    유탄발사기, 발사기 추가
+    발사기는 發射幾, 發射器로 표현이 가능하므로 두가지 모두 추가한다.
+    
+    유탁제(乳濁) 한자 빠진 것 추가
+
+M	data/hanja/hanja.txt
+
+commit 8255f32704a03ca131df2b7d139bf62cf2d4e9e4
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-10-23 14:08:17 +0900
+
+    cmake: Add ENABLE_UNIT_TEST option
+    
+    check library가 없이 테스크 코드를 빌드하기 위한 옵션을
+    추가한다.
+
+M	CMakeLists.txt
+M	test/CMakeLists.txt
+
+commit 07ba837b828f96bc5342ad22d4e3c05a726dd099
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-10-23 14:17:32 +0900
+
+    Add AM_MAINTAINER_MODE macro
+    
+    autotools가 자동으로 재실행되는 것이 불편한 경우가 있으므로
+    사용자가 선택할 수 있도록 AM_MAINTAINER_MODE 매크로를 추가한다.
+
+M	configure.ac
+
+commit 8de22bfb0bc1d80e0da3aebbfc59c57e3425a1a6
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-09-22 17:16:37 +0900
+
+    hanja: 탐험선, 탐험대원 추가
+
+M	data/hanja/hanja.txt
+
+commit 8118b22db520da8c2748face38e08bafe631fe94
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-09-22 17:13:54 +0900
+
+    test: Add TEST_HANJA_TXT definition to hanja test
+    
+    시스템 디렉토리가 아닌 소스 디렉토리의 hanja.txt 파일을
+    테스트하기 위해서 TEST_HANJA_TXT를 사용한다.
+
+M	test/CMakeLists.txt
+M	test/Makefile.am
+M	test/hanja.c
+
+commit 49cd5a2694ee70fcaac95fec8d4ad592047f9c07
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-10-12 16:15:14 +0900
+
+    cmake: Add BUILD_SHARED_LIBS option
+    
+    사용자가 Shared와 Static 빌드를 선택할 수 있게
+    BUILD_SHARED_LIBS 옵션을 추가한다.
+    
+    ENABLE_EXTERNAL_KEYBOARDS 옵션이 ON 일때에만
+    expat을 찾아도 되므로 조건 처리한다.
+    
+    추가로 find_package()를 사용한다. 패키지를 찾을 때에는
+    include()보다 나을 것 같다.
+
+M	CMakeLists.txt
+M	data/keyboards/CMakeLists.txt
+M	hangul/CMakeLists.txt
+M	po/CMakeLists.txt
+M	test/CMakeLists.txt
+
+commit dab127b85d1b4c88a1a729b1cd6f9000ab25eb77
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-09-28 22:30:52 +0900
+
+    cmake: Add hangul-config.cmake.in
+    
+    실수로 파일을 add하지 않았다. 추가한다.
+    추가로 cmake 디렉토리 이름을 하드코딩하지 않고 CMAKE_PROJECT_NAME 변수를
+    사용하도록 변경한다.
+    
+    https://github.com/libhangul/libhangul/issues/56
+
+M	CMakeLists.txt
+A	hangul-config.cmake.in
+
+commit b6f983765b6c192b50d3dc05c3c7863ca446b259
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-09-22 17:36:46 +0900
+
+    cmake: Add tools subdirectory
+    
+    hangul 빌드를 위한 CMake 스크립트를 추가한다.
+
+M	CMakeLists.txt
+A	tools/CMakeLists.txt
+
+commit 7b2c1543196d98d32ba3a094687f059da70f3f45
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-08-01 19:56:17 +0900
+
+    Add CMake build files
+    
+    CMake로도 빌드할 수 있으면 좀더 편리하다.
+
+A	CMakeLists.txt
+A	data/hanja/CMakeLists.txt
+A	data/keyboards/CMakeLists.txt
+A	hangul/CMakeLists.txt
+A	po/CMakeLists.txt
+A	test/CMakeLists.txt
+
+commit 4c1efe85ab9ddb5f6ea3e69bdf24e9373d5c402a
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-09-19 10:48:44 +0900
+
+    Add LIBHANGUL_KEYBOARD_PATH environment variable feature
+    
+    LIBHANGUL_KEYBOARD_PATH 환경 변수를 설정하면 그 위치의
+    키보드 파일을 로딩하게 한다.
+    
+    테스트할 때에는 시스템에 설치된 키보드 파일이 아니라
+    빌드 디렉토리의 키보드 파일을 사용해야 의미가 있다.
+    빌드 디렉토리의 키보드을 로딩할 수 있는 기능을 제공하기위해서
+    LIBHANGUL_KEYBOARD_PATH 환경 변수를 도입한다.
+    
+    소스 디렉토리에는 키보드 파일 템플릿만 있다. 완성된 키보드 파일은
+    빌드 디렉토리에 생성되므로 빌드 디렉토리에서 키보드 파일을 로딩해야 한다.
+    그러나 거기에는 combination 파일이 없으므로 제대로된 테스트를
+    위해서는 combination 파일도 복사해주는 룰이 필요하다.
+    AC_CONFIG_LINKS()를 사용하여 소스만 고치고도 테스트 가능하게 한다.
+
+M	configure.ac
+M	hangul/hangulkeyboard.c
+M	test/Makefile.am
+M	test/hangul.c
+M	test/test.c
+
+commit cf218777a2019753462084a5ceec7ca0457b9f65
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:   2019-08-10 22:13:15 +0900
+
+    intltool to gettext migration
+    
+    https://wiki.gnome.org/Initiatives/GnomeGoals/GettextMigration
+
+M	autogen.sh
+M	configure.ac
+M	data/keyboards/Makefile.am
+M	data/keyboards/hangul-keyboard-2.xml.template
+M	data/keyboards/hangul-keyboard-2y.xml.template
+M	data/keyboards/hangul-keyboard-32.xml.template
+M	data/keyboards/hangul-keyboard-39.xml.template
+M	data/keyboards/hangul-keyboard-3f.xml.template
+M	data/keyboards/hangul-keyboard-3s.xml.template
+M	data/keyboards/hangul-keyboard-3y.xml.template
+M	data/keyboards/hangul-keyboard-ahn.xml.template
+M	data/keyboards/hangul-keyboard-ro.xml.template
+A	data/keyboards/its/hangul-keyboard.its
+A	data/keyboards/its/hangul-keyboard.loc
+
+commit 5d1c7a77e6153227701fc906d3611b15e5b390ee
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2021-04-04 11:24:51 +0900
+
+    Remove compiler warnings with -Wpedantic (#44)
+    
+    pedantic 옵션을 추가했을 때 발생하는 워닝을 제거한다.
+    다른 워닝이 발생하는 곳도 같이 수정한다.
+    
+    https://github.com/libhangul/libhangul/issues/44
+
+M	hangul/hangul.h
+M	hangul/hangulinputcontext.c
+M	test/hangul.c
+
+commit 2ddc547f014afdc25b73a2f26f28b70728d79105
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2020-02-29 20:36:47 +0900
+
+    建設社 추가, 강강수월래에 설명 추가
+    
+    한자 중 틀린 것에 설명이 없으면 맞는 표현으로
+    오해할 것 같아서 설명을 추가한다.
+
+M	data/hanja/hanja.txt
+
+commit 2c9ddb333d57c274de2b4e7fd18f78d5bbf96c7d
+Merge: e062026 06f56ae
+Author: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date:   2020-02-16 22:15:55 +0900
+
+    Merge branch 'dhsung_modhanja_20191026' of https://github.com/studioego/libhangul
+    
+    https://github.com/libhangul/libhangul/pull/40
+
+commit 06f56aec9d849e3505458304f085af7b0f82fc45
+Author: DaeHyun Sung <sungdh86@gmail.com>
+Date:   2019-10-26 14:15:43 +0900
+
+    fixed Hanja list, Hangul range from ㄱ to 곶
+    
+    한자 목록 중 `ㄱ`에서 `곶`까지의 범위의 한자어 수정
+    
+    Reference.
+    
+    * 네이버 국어사전 https://ko.dict.naver.com
+    * 다음 국어사전 https://dic.daum.net/index.do?dic=kor
+    * 표준국어대사전 http://stdict.korean.go.kr
+    
+    issue#39 한자(漢字) 목록 중 ㄱ-곶까지의 내용 수정
+    https://github.com/libhangul/libhangul/issues/39
+
+M	data/hanja/hanja.txt
+
 commit e0620262d604ffb1b912d1e57ceb9c534693b798
 Author: DaeHyun Sung <sungdh86@gmail.com>
 Date:   2019-10-03 02:18:59 +0900
