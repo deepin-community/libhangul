@@ -6,6 +6,6 @@ TEST_CFLAGS=`pkg-config --cflags libhangul check`
 TEST_LIBS=`pkg-config --libs libhangul check`
 
 TEMPFILENAME=`mktemp -p $AUTOPKGTEST_TMP`
-gcc $TEST_CFLAGS -DTEST_SOURCE_DIR=\"$PWD/test\" -o $TEMPFILENAME test/test.c $TEST_LIBS
+gcc $TEST_CFLAGS -DTEST_SOURCE_DIR=\"$PWD/test\" -DTEST_LIBHANGUL_KEYBOARD_PATH=\"/usr/share/libhangul/keyboards\" -o $TEMPFILENAME test/test.c $TEST_LIBS
 $TEMPFILENAME
 rm -f $TEMPFILENAME

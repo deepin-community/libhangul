@@ -4,14 +4,19 @@
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
-	dh $@ --with autoreconf
+	dh $@
 
 .PHONY: override_dh_autoreconf
 override_dh_autoreconf:
 	test -f ChangeLog || touch ChangeLog
-	test -f config.rpath || touch config.rpath
-	intltoolize --copy --force
 	dh_autoreconf
+
+.PHONY: override_dh_clean
+override_dh_clean:
+	if [ -f ChangeLog ] && ! [ -s ChangeLog ]; then \
+	    rm  -f ChangeLog; \
+	fi
+	dh_clean
 
 # The upstream distributes the git-based changelog, so we can't get that
 # changelog when we directly use the upstream git..
